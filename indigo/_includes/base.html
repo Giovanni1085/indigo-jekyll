@@ -1,184 +1,70 @@
 <!DOCTYPE html>
-<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
-<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
-<head>
-    <meta charset=utf-8 />
-    <meta name="author" content="UCL" />
-    <meta name="description" content="UCL Homepage" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<html lang="en-GB" prefix="og: http://ogp.me/ns#">
+{% include header.html %}
 
-    <!-- social meta -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@uclnews">
-    <meta name="twitter:title" content="UCL - London's Global University">
-    <meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
-    <meta name="twitter:creator" content="@UCLWAMS">
-    <meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
-    <meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
-    <meta property="og:title" content="UCL - London's Global University" />
-    <meta property="og:url" content="http://www.ucl.ac.uk" />
-    <meta property="og:site_name" content="UCL" />
-    <meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
-    <meta property="og:type" content="website" />
-    <meta property="og:profile_id" content="uclofficial" />
-    <!-- end social meta -->
+<body class="post-template-default single single-post single-format-standard group-blog">
+		<div id="page" class="page-container">
 
-  <title>{{ page.title }}</title>
+				<header id="masthead" class="page-header" role="banner">
 
-  <link href="{{site.baseurl}}/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
-  <link href="{{site.baseurl}}/css/jekyll-styles.css" rel="stylesheet" type="text/css">
-  <link href="{{site.baseurl}}/site-styles/local_styles.css" rel="stylesheet" type="text/css">
-  <link href="{{site.baseurl}}/site-styles/ipython.css" rel="stylesheet" type="text/css">
+			<a class="logo-box" href='https://www.turing.ac.uk'></a>
+			<div class="topbox">
 
-  <link rel="shortcut icon" href="{{site.baseurl}}/images/favicon.ico" />
-    <link rel="apple-touch-icon-precomposed" href="{{site.baseurl}}/favicon-152.png">
-    <meta name="msapplication-TileColor" content="#000000">
-    <meta name="msapplication-TileImage" content="{{site.baseurl}}/favicon-144.png">
 
-  <script src="{{site.baseurl}}/js/lib/modernizr-custom.js"></script>
-  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
+							</header><!-- #masthead -->
 
-    <script>
-      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+						<main id="main" class="site-main wrap" role="main">
 
-      Modernizr.load({
-        //cutting the mustard as used by the BBC
-        test: cuttingTheMustard
-        //if old browser load the shiv
-        ,
-        nope: [
-          '{{site.baseurl}}/js/lib/html5shiv-printshiv.min.js', '{{site.baseurl}}/js/lib/respond.min.js'
-        ]
-      });
-      //set conditional assets for main.js
-      var globalSiteSpecificVars = {
-        pathToJquery: "{{site.baseurl}}/js/lib/jquery-1.9.1.min",
-        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
-      }
-      if (cuttingTheMustard) {
-        globalSiteSpecificVars.pathToJquery = '{{site.baseurl}}/js/lib/jquery-2.1.1.min';
-      }
-    </script>
-    <script src="{{site.baseurl}}/js/lib/require.min.js"></script>
-    <script src="{{site.baseurl}}/js/main.js"></script>
-    <script>
-      require.config({
-        baseUrl: '{{site.baseurl}}/js/lib'
-      });
-        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
-    </script>
-</head>
+<!-- <div id="news"> -->
+<div id="news" class="full" >
 
-<body id="index" class="{{body_class}}">
 
-  <header class="header header--desktop">
+	<div class="content">
+						<h1>{{site.title}}</h1>
 
-  <a class="header__close" href="#">
-    <img src="{{site.baseurl}}/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+							<article class="post type-post status-publish format-standard hentry category-news" itemscope itemType="http://schema.org/BlogPosting">
+		<header class="entry-header">
 
-  {% include global-masthead.html %}
 
-  <div class="wrapper">
+			{% if page.layout == 'blog' %}
+			<h1 class="entry-title" itemprop="name">{{page.description}}</h1>
+			{% elsif page.layout != 'blog' %}
+			<h1 class="entry-title" itemprop="name">{{page.title}}</h1>
+			{% endif %}
 
-    {% include ucl-banner.html %}
 
-    <div class="sidebar">
+		<div class="entry-meta">
 
-      <nav class="nav nav--mobile">
-        <ul>
-          {% include nav_mobile_links.html %}
-        </ul>
-      </nav>
+			<span class="genericon genericon-time"></span>
+			<!-- span class="posted-on" itemprop="datePublished">Posted on {{page.date}}</span-->
 
-      <nav class="nav nav--left">
-        <ul>
-          {% include nav_left_links.html %}
-        </ul>
-      </nav>
+		</div><!-- .entry-meta -->
+	</header><!-- .entry-header -->
 
-    </div>
-    <!-- end .sidebar -->
+	<div class="entry-content" itemprop="articleBody" >
 
-    <nav class="nav nav--top">
-      <ul>
-        {% include nav_top_links.html %}
-      </ul>
-    </nav>
+	{{content_body}}
 
-  </div>
-  <!-- end .wrapper -->
+	</div><!-- .entry-content -->
+	{% if page.layout != 'blog' and page.layout != 'category' %}
+		{% include sharing.html %}
+	{% endif %}
 
-  </header>
-  <!-- end .header -->
 
-  <div class="site-content wrapper">
 
-    <header class="header header--mobile default-header">
-      <a class="header__open" href="#">
-        <img src="{{site.baseurl}}/images/ucl-menu.svg" alt="Menu" />
-      </a>
-    </header>
+	</article><!-- #post-## -->
 
-    <div class="site-content__inner clearfix">
-      <div class="site-content__body">
+		</div><!-- #content -->
+  {% include sidebar.html %}
 
-          {% unless site.no_crumbs %}
-            <nav class="breadcrumb clearfix">
-              <ul class="breadcrumb__list">
-                {% include crumbs.html%}
-              </ul>
-            </nav>
-           <div class="site-content__main">
-            {% if page.nblink %}
-               <div id="slidelink">
-                 <a href="{{site.baseurl}}/{{page.path | remove: ".html" | remove: ".md"}}.ipynb">Notebook download</a>
-               </div>
-            {% endif %}
-            {% if page.slidelink %}
-               <div id="slidelink">
-                 <a href="{{site.baseurl}}/{{page.path | remove: ".md"}}-reveal.html">Slides</a>
-               </div>
-            {% endif %}
-          {% endunless %}
-          {{ content_body }}
-        </div>
 
-      </div>
-    </div>
+    </div> <!-- END DIV class="full"> -->
+</main><!-- #main -->
+</div> <!-- END DIV class="page-container"> -->
 
-  </div>
-  <!-- end .site-content -->
 
-  {% include footer.html %}
 
-  <script src="{{site.baseurl}}/js/lib/require.min.js"></script>
-  <script src="{{site.baseurl}}/js/main.js"></script>
-    <script>
-      require.config({
-        baseUrl: '{{site.baseurl}}/js/lib'
-      });
-        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
-    </script>
-
+{% include footer.html %}
 </body>
-
 </html>

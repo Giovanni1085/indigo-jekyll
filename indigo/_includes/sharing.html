@@ -1,0 +1,20 @@
+<div class="share">
+
+
+
+  {% if page.layout != 'blog' and page.layout != 'category' %}
+    {% assign title={{page.title}} %}
+    {% assign url={{page.url}} %}
+  {% else %}
+    {% assign title={{post.title}} %}
+    {% assign url={{post.url}} %}
+  {% endif %}
+
+    <p>Share:
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{url}}" target="_blank"><i class="icons ss-facebook"></i></a>
+    <a href="https://twitter.com/intent/tweet?text={{title}}&amp;url={{site.url}}{{url}}" target="_blank"><i class="icons ss-twitter"></i></a>
+    <a href="http://www.linkedin.com/shareArticle?mini=true&url={{site.url}}{{url}}" target="_blank"><i class="icons ss-linkedin"></i></a>
+    <a href="mailto:?subject={{site.title}}: {{title}}&body={{title}} ... Read More here: {{site.url}}{{url}}" title="Email to a friend/
+    colleague"><i class="icons ss-mail"></i></a>
+  </p>
+</div>

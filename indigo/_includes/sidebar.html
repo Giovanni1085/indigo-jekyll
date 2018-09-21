@@ -1,0 +1,32 @@
+<div class="sidebar" id="sidebar-news">
+
+  <aside id="ati-category-tags-3" class="widget-1 widget-first widget-odd widget ati-category-tags-class"><div class="side-content">
+    <div class="side-content">
+        <h3>Sections</h3>
+          <ul class="cats">
+            {% assign sorted_pages = site.pages | sort:"order" %}
+            {% for p in sorted_pages %}
+              {% unless p.exclude %}
+              <li><a href="{{site.baseurl}}{{p.url}}">{{p.title}}</a></li>
+              {% endunless %}
+            {% endfor %}
+          </ul></div>
+  </div>
+
+  <div class="side-content">
+  {% if page.layout == 'blog' or page.layout == 'category' or page.layout == 'post' %}
+    <h3>Blog Categories</h3>
+      <ul class="cats">
+      <li><a href="{{site.baseurl}}/blog.html">All Blogs</a></li>
+      {% for category in site.categories %}
+          <li><a href="/category/{{ category[0] }}.html" style="text-decoration: none;">{{category[0]}}</a></li>
+      {% endfor %}
+    </ul>
+</div>
+{% endif %}
+
+  </aside>
+
+
+
+</div>
