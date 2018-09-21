@@ -60,6 +60,10 @@ img.emoji {
 <link rel='stylesheet' id='some_like_it_neat-style-css'  href='{{site.baseurl}}/ati_css/style.css' type='text/css' media='all' />
 <link rel='stylesheet' id='ss_social_circle-css'  href='{{site.baseurl}}/ati_css/ss-social-circle.css' type='text/css' media='all' />
 <link rel='stylesheet' id='tooltipster-css'  href='{{site.baseurl}}/ati_css/tooltipster.css' type='text/css' media='all' />
+<link href="{{site.baseurl}}/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="{{site.baseurl}}/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="{{site.baseurl}}/site-styles/local_styles.css" rel="stylesheet" type="text/css">
+  <link href="{{site.baseurl}}/site-styles/ipython.css" rel="stylesheet" type="text/css">
 
 <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js'></script>
 
@@ -84,4 +88,63 @@ img.emoji {
 <script type="text/javascript">
 		window.google_analytics_uacct = "UA-87633703-1";
 	</script>
+
+	<title>{{ page.title }}</title>
+
+  <link rel="shortcut icon" href="{{site.baseurl}}/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="{{site.baseurl}}/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="{{site.baseurl}}/favicon-144.png">
+
+  <script src="{{site.baseurl}}/js/lib/modernizr-custom.js"></script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+    <script>
+      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+      Modernizr.load({
+        //cutting the mustard as used by the BBC
+        test: cuttingTheMustard
+        //if old browser load the shiv
+        ,
+        nope: [
+          '{{site.baseurl}}/js/lib/html5shiv-printshiv.min.js', '{{site.baseurl}}/js/lib/respond.min.js'
+        ]
+      });
+      //set conditional assets for main.js
+      var globalSiteSpecificVars = {
+        pathToJquery: "{{site.baseurl}}/js/lib/jquery-1.9.1.min",
+        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+      }
+      if (cuttingTheMustard) {
+        globalSiteSpecificVars.pathToJquery = '{{site.baseurl}}/js/lib/jquery-2.1.1.min';
+      }
+    </script>
+    <script src="{{site.baseurl}}/js/lib/require.min.js"></script>
+    <script src="{{site.baseurl}}/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '{{site.baseurl}}/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+
 </head>

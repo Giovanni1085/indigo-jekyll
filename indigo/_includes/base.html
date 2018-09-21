@@ -1,70 +1,99 @@
 <!DOCTYPE html>
-<html lang="en-GB" prefix="og: http://ogp.me/ns#">
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+
 {% include header.html %}
 
-<body class="post-template-default single single-post single-format-standard group-blog">
-		<div id="page" class="page-container">
+<body id="index" class="{{body_class}}">
 
-				<header id="masthead" class="page-header" role="banner">
+  <header class="header header--desktop">
 
-			<a class="logo-box" href='https://www.turing.ac.uk'></a>
-			<div class="topbox">
+  <a class="header__close" href="#">
+    <img src="{{site.baseurl}}/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
 
+  {% include header.html %}
 
+  <div class="wrapper">
 
-							</header><!-- #masthead -->
+    <div class="sidebar">
 
-						<main id="main" class="site-main wrap" role="main">
+      <nav class="nav nav--mobile">
+        <ul>
+          {% include nav_mobile_links.html %}
+        </ul>
+      </nav>
 
-<!-- <div id="news"> -->
-<div id="news" class="full" >
+      <nav class="nav nav--left">
+        <ul>
+          {% include nav_left_links.html %}
+        </ul>
+      </nav>
 
+    </div>
+    <!-- end .sidebar -->
 
-	<div class="content">
-						<h1>{{site.title}}</h1>
+    <nav class="nav nav--top">
+      <ul>
+        {% include nav_top_links.html %}
+      </ul>
+    </nav>
 
-							<article class="post type-post status-publish format-standard hentry category-news" itemscope itemType="http://schema.org/BlogPosting">
-		<header class="entry-header">
+  </div>
+  <!-- end .wrapper -->
 
+  </header>
+  <!-- end .header -->
 
-			{% if page.layout == 'blog' %}
-			<h1 class="entry-title" itemprop="name">{{page.description}}</h1>
-			{% elsif page.layout != 'blog' %}
-			<h1 class="entry-title" itemprop="name">{{page.title}}</h1>
-			{% endif %}
+  <div class="site-content wrapper">
 
+    <header class="header header--mobile default-header">
+      <a class="header__open" href="#">
+        <img src="{{site.baseurl}}/images/ucl-menu.svg" alt="Menu" />
+      </a>
+    </header>
 
-		<div class="entry-meta">
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
 
-			<span class="genericon genericon-time"></span>
-			<!-- span class="posted-on" itemprop="datePublished">Posted on {{page.date}}</span-->
+          {% unless site.no_crumbs %}
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                {% include crumbs.html%}
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            {% if page.nblink %}
+               <div id="slidelink">
+                 <a href="{{site.baseurl}}/{{page.path | remove: ".html" | remove: ".md"}}.ipynb">Notebook download</a>
+               </div>
+            {% endif %}
+            {% if page.slidelink %}
+               <div id="slidelink">
+                 <a href="{{site.baseurl}}/{{page.path | remove: ".md"}}-reveal.html">Slides</a>
+               </div>
+            {% endif %}
+          {% endunless %}
+          {{ content_body }}
+        </div>
 
-		</div><!-- .entry-meta -->
-	</header><!-- .entry-header -->
+      </div>
+    </div>
 
-	<div class="entry-content" itemprop="articleBody" >
+  </div>
+  <!-- end .site-content -->
 
-	{{content_body}}
+  {% include footer.html %}
 
-	</div><!-- .entry-content -->
-	{% if page.layout != 'blog' and page.layout != 'category' %}
-		{% include sharing.html %}
-	{% endif %}
+  <script src="{{site.baseurl}}/js/lib/require.min.js"></script>
+  <script src="{{site.baseurl}}/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '{{site.baseurl}}/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
 
-
-
-	</article><!-- #post-## -->
-
-		</div><!-- #content -->
-  {% include sidebar.html %}
-
-
-    </div> <!-- END DIV class="full"> -->
-</main><!-- #main -->
-</div> <!-- END DIV class="page-container"> -->
-
-
-
-{% include footer.html %}
 </body>
+
 </html>
