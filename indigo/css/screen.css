@@ -2075,7 +2075,7 @@ figure + figure, figure + p {
 
 .brand__heading {
   position: absolute;
-  left: 135px;
+  right: 35px;
   top: 25%;
   color: #ffffff;
   text-transform: uppercase;
