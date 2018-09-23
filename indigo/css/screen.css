@@ -2086,7 +2086,7 @@ figure + figure, figure + p {
   @media only screen and (max-width: 767px) {
     .brand__heading {
       position: relative;
-      right: 0;
+      left: 200;
       width: 100%;
       box-sizing: border-box; } }
 
